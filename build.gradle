@@ -5,17 +5,18 @@ plugins {
     id 'pl.allegro.tech.build.axion-release' version '1.13.6'
 }
 
-project.version = scmVersion.version
+
 
 docker {
     name "${project.name}:${project.version}"
-    files "plugins.txt", "seedJob.xml"
+    files "plugins.txt"
+    //, "seedJob.xml"
 }
 
 dockerRun {
     name "${project.name}"
     image "${project.name}:${project.version}"
-    ports '8080:8080'
+    ports '9092:8080'
     clean true
     daemonize false
 }
