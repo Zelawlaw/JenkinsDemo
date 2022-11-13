@@ -9,8 +9,7 @@ plugins {
 
 docker {
     name "${project.name}:${project.version}"
-    files "plugins.txt"
-    //, "seedJob.xml"
+    files "plugins.txt", "seedJob.xml"
 }
 
 
