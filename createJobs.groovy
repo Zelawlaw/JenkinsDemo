@@ -7,11 +7,17 @@ pipelineJob('pipelineJob') {
     }
 }
 
-pipelineJob('pipelineJob2') {
+pipelineJob('parkrides-job') {
     definition {
-        cps {
-            script(readFileFromWorkspace('pipelineJob.groovy'))
-            sandbox()
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url 'https://github.com/Zelawlaw/parkrides.git'
+                    }
+                    branch 'master'
+                }
+            }
         }
     }
 }
